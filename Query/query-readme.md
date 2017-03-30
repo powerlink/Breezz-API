@@ -26,13 +26,13 @@ url = 'https://app.breezz.io/api/query'
 token_id = '73994acf-cd16-48bd-b8e1-17bc8f'
 
 data = {
-   “page_number": 1,
+   "page_number": 1,
     "objecttype" : 1,
     "page_size" : 100,
-    "query" :“(id = 123)"    #optional field
-    “fields”: ”id”,    #optional field
-    "sort_by": “createdon”,    #optional field
-    “sort_type”: ”desc”, #optional field
+    "query" :"(id = 123)"    #optional field
+    "fields": ”id”,    #optional field
+    "sort_by": "createdon",    #optional field
+    "sort_type": "desc", #optional field
 }
 
 headers = {'Content-type': 'application/json', 'tokenId': token_id, 'utc_time' : str(1)}
