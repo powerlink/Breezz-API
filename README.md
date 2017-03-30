@@ -2,22 +2,19 @@
 
 # Breezz RestAPI
 
-This is an up to date wrapper for the Breezz.io REST API. 
-we initially found working with the API to be a bit frustrating and hopefully this wrapper will make everything easy for you.
+This is an up-to-date wrapper for the Breezz.io REST API. 
+Initially, we found it quite frustrating working with the API - hopefully this wrapper will make everything easier for you. 
 
-More information about the Breezz REST API can be found at
-
-http://breezz.io/Support
+Find more information about the Breezz REST API at http://breezz.io/Support
 
 Please email support@breezz.io if you find any bugs.
 
-## index
+## Index
 
 + <a href="#create">Create</a>
 + <a href="#update">Update</a>
 + <a href="#delete">Delete</a>
 + <a href="#query">Query</a>
-
 
 ## Authentication
 To make a REST API call, you must include request headers including the Authorization header ==>
@@ -106,40 +103,40 @@ Json exemple:
 More exemple in <a href="https://github.com/breezzcrm/Breezz-API/blob/master/Query/query-readme.md#php">PHP</a> | <a href="https://github.com/breezzcrm/Breezz-API/blob/master/Query/query-readme.md#python">python</a> | <a href="https://github.com/breezzcrm/Breezz-API/blob/master/Query/query-readme.md#aspnet">ASP.NET</a> |
 
 
-Field | Description | exemple
+Field | Description | Example
 ------|------------ | --------------------
-objecttype | the number of object | Accounts=1,	Contact=2,Deals=4 (<a href="#">See more..</a>)
-page_size | the number of result per page | Min:1 Max:500
-page_number | the page of result | start at: 1
-fields | which fields to show on result | for all field: *
-query | the query you want search | ((idnumber  = 1234) AND (idnumber  = 5678))
+objecttype | The number of the object | Accounts=1,	Contact=2,Deals=4 (<a href="#">See more..</a>)
+page_size | The number of results per page | Min:1 Max:500
+page_number | The page of the result | start at: 1
+fields | Which fields to show on the result | for all field: *
+query | The query you want to search | ((idnumber  = 1234) AND (idnumber  = 5678))
 sort_by | Select field to sort by | accountname/idnumber/telephone1
 sort_type | Select type to sort | desc/asc
 
 Type of query:
 
-Operator | Description | exemple
+Operator | Description | Example
 ------|------------ | --------------------
-**=** | find result equal | "query": "(idnumber  **=** 1234)"
-**!=** | find result not equal | "query": "(idnumber  **!=** 1234)"
+**=** | Find result equal to | "query": "(idnumber  **=** 1234)"
+**!=** | Find result not equal to | "query": "(idnumber  **!=** 1234)"
 **>** | Greater than | "query": "(age1  **>** age2)"
 **<** | Less than | "query": "(age1  **<** age2)"
 **<=** | Greater than or equal to | "query": "(age1  **<=** age2)"
 **>=** | Less than or equal to | "query": "(age1  **>=** age2)"
-**OR** | performs a logical-OR of its bool operands | "query": "((idnumber  = 1234) **OR** (idnumber  = 456789))"
-**AND** | performs a logical-AND of its bool | "query": "((idnumber  = 1234) **AND** (accountname  = 'משה'))"
-**is-null** | look for NULL values | "query": "(idnumber **is-null** 1234567)"
-**is-not-null** | look for not NULL values | "query": "(idnumber **is-not-null** 1234567)"
-**start-with** | find if the string start with the string |  "query": "(idnumber **start-with** 1234567)"
-**end-with** | find if the string end with the string | "query": "(idnumber **end-with** 1234567)"
-**not-start-with** | find if the string not start with the string | "query": "(idnumber **not-start-with** 1234567)"
-**not-end-with** | find if the string not end with the string | "query": "(idnumber **not-end-with** 1234567)"
+**OR** | Performs a logical-OR of its bool operands | "query": "((idnumber  = 1234) **OR** (idnumber  = 456789))"
+**AND** | Performs a logical-AND of its bool | "query": "((idnumber  = 1234) **AND** (accountname  = 'משה'))"
+**is-null** | Look for NULL values | "query": "(idnumber **is-null** 1234567)"
+**is-not-null** | Look for not NULL values | "query": "(idnumber **is-not-null** 1234567)"
+**start-with** | Find if the string starts with the string |  "query": "(idnumber **start-with** 1234567)"
+**end-with** | Find if the string ends with the string | "query": "(idnumber **end-with** 1234567)"
+**not-start-with** | Find if the string does not start with the string | "query": "(idnumber **not-start-with** 1234567)"
+**not-end-with** | Find if the string does not end with the string | "query": "(idnumber **not-end-with** 1234567)"
 
-You can combining the AND and OR Conditions
+You can combine the AND and OR Conditions
 
 **Note**
 
 + AND & OR conditions allow you to test multiple conditions.
-+ Don't forget the order of operation parentheses!
++ Don't forget the order of the operation parentheses!
 
  Go to your <a href="http://breezz.io">Breezz account</a> and let's start!
