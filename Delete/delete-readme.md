@@ -1,6 +1,6 @@
 # Delete
 
-To delete row in your Breezz account you only need call this URL:
+To delete a row in your Breezz account you only need to send a reuqest to this URL:
 
 ```
 https://app.breezz.io/api/record/{objectID}/{ID}
