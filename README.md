@@ -58,10 +58,10 @@ PUT
 Json exemple:
 ```javascript
 {
- "accountname" : "משה",
- "telephone1" : "036339060",
- "idnumber" : "56789",
- "billingcity" : "ירושלים"
+ "accountname" : "jhon",
+ "telephone1" : "+4406339060",
+ "idnumber" : "123456",
+ "billingcity" : "London"
 }
 ```
 More exemple in <a href="https://github.com/breezzcrm/Breezz-API/blob/master/Update/update-readme.md#php">PHP</a> | <a href="https://github.com/breezzcrm/Breezz-API/blob/master/Update/update-readme.md#python">python</a> | <a href="https://github.com/breezzcrm/Breezz-API/blob/master/Update/update-readme.md#aspnet">ASP.NET</a> |
@@ -98,7 +98,7 @@ Json exemple:
 "page_size": 50,
 "page_number": 1,
 "fields": "accountname,idnumber,telephone1",
-"query": "(idnumber  = 12345678) AND (telephone1 = 036339060)",
+"query": "(idnumber  = 12345678) AND (accountname = 'john')",
 "sort_by": "accountname",
 "sort_type": "desc"
 } 
