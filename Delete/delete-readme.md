@@ -7,7 +7,6 @@ https://app.breezz.io/api/record/{objectID}/{ID}
 ```
 
 ## JSON: 
-<a href="">=> Download</a>
 
 ```javascript
 no data
@@ -16,7 +15,19 @@ no data
 ## PHP:
 
 ```php
-
+$objectid = '332DB2BF-3694-4F80-B82F-99F8712345';		
+$url =https://app.breezz.io/api/record/account/'.$objectid;
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL,$url);
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
+	curl_setopt($ch, CURLOPT_HTTPHEADER, array(                                                                          
+    'Content-Type: application/json',
+    'tokenid: 0588209E-2715-419F-A913-732DABBDFE61',                                                                                
+    'Content-Length: ' . strlen($data_string))                                                                       
+); 
+    $result = curl_exec($ch);
+    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    curl_close($ch);
 ```
 
 ## python:
@@ -37,5 +48,17 @@ return json.loads(response.content)['data']
 ## ASP.net:
 
 ```c#
+using System.Collections.Specialized;
+using System.Net;
+using System.Web.Script.Serialization;
+using System.IO;
 
+ using (WebClient client = new WebClient())
+            {
+                string tokenid = "0588209E-2715-419F-7777-732DA123456"; 
+                string objectid = "332db2bf-3694-4f80-7777-99f87b123456";
+                client.Encoding = System.Text.Encoding.UTF8;
+                client.Headers.Set("tokenId", tokenid);
+                string result = client.UploadString("https://app.breezz.io/api/record/account/" + objectid, "DELETE", "");
+            }
 ```
