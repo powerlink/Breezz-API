@@ -1,7 +1,6 @@
- # Create
+# Create
 
 ## JSON: 
-<a href="https://github.com/powerlink/Rest-API/blob/master/Create/Create-json.json">=> Download</a>
 
 ```javascript
 {
@@ -20,24 +19,25 @@ $data = '{
       "telephone1" : "036339060",
       "idnumber" : "1234",
       "billingcity" : "תל אביב"
-        }';                                                                    
-$data_string = json_encode($data);                                                                                   
-                                                                                                                     
-$ch = curl_init('https://secure.powerlink.co.il/api/record/account');                                                                   
-curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");                                                                     
-curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);                                                                  
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                                                                      
+        }';
+$url='https://app.breezz.io/api/record/account'
+$data_string = json_encode($data);  
+$curl = curl_init();
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+curl_setopt($curl, CURLOPT_POSTFIELDS, $data_string);                                                                   
+curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+curl_setopt($curl, CURLOPT_URL, $url);
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_HTTPHEADER, array(                                                                          
     'Content-Type: application/json',
-    'tokenid: 73994acf-cd16-48bd-b8e1-17bc8f',                                                                                
+    'tokenid: 0588209E-2715-419F-A913-732D1234',                                                                                
     'Content-Length: ' . strlen($data_string))                                                                       
-);                                                                                                                   
-                                                                                                                     
-$result = curl_exec($ch);
+); 
+$result = curl_exec($curl);
+curl_close($curl);
 ```
 
 ## python:
-<a href="https://github.com/powerlink/Rest-API/blob/master/Create/create-pyton.py">=> Download</a>
 
 ```python
 import requests
@@ -50,9 +50,9 @@ data = {
      "billingcity" : "תל אביב"
 }
 
-url = 'https://secure.powerlink.co.il/api/record/account'
+url = 'https://app.breezz.io/api/record/account'
 token_id = '73994acf-cd16-48bd-b8e1-17bc8f'
-headers = {'Content-type': 'application/json', 'tokenId': token_id, 'utc_time' : str(1)}
+headers = {'Content-type': 'application/json', 'tokenId': token_id}
 response = requests.post(url, data=str(data), headers=headers)
 return json.loads(response.content)['data']['Record']
 ```
@@ -60,26 +60,23 @@ return json.loads(response.content)['data']['Record']
 ## ASP.net:
 
 ```c#
-var httpWebRequest = (HttpWebRequest)WebRequest.Create("https://secure.powerlink.co.il/api/record/account");
-httpWebRequest.ContentType = "application/json";
-httpWebRequest.Method = "POST";
+using System.Collections.Specialized;
+using System.Net;
+using System.Web.Script.Serialization;
+using System.IO;
 
-using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
-{
-    string json = new JavaScriptSerializer().Serialize(new
+using (WebClient client = new WebClient())
+            {
+                string tokenid = "0588209E-2715-419F-1237-7312345"; 
+                client.Headers.Set("tokenId", tokenid);
+                client.Encoding = System.Text.Encoding.UTF8;
+                string json = new JavaScriptSerializer().Serialize(new
                 {
-                  accountname = "משה",
-                  telephone1 = "036339060",
-                  idnumber = "1234",
-                  billingcity= "תל אביב"
+                    accountname = "משה",
+                    telephone1 = "036339060",
+                    idnumber = "1234",
+                    billingcity = "תל אביב"
                 });
-
-    streamWriter.Write(json);
-}
-
-var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
-using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
-{
-    var result = streamReader.ReadToEnd();
-}
+                string result = client.UploadString("https://app.breezz.io/api/record/account", "POST", json);
+            }
 ```
