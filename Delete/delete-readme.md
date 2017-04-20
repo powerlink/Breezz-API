@@ -3,7 +3,7 @@
 To delete a row in your Breezz account you only need to send a reuqest to this URL:
 
 ```
-https://app.breezz.io/api/record/{objectID}/{ID}
+https://app.breezz.io/api/record/{object}/{ID}
 ```
 
 ## JSON: 
