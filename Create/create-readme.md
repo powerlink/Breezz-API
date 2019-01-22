@@ -4,10 +4,10 @@
 
 ```javascript
 {
- "accountname" : "משה",
- "telephone1" : "036339060",
+ "accountname" : "IBM",
+ "telephone1" : "442080687145",
  "idnumber" : "1234",
- "billingcity" : "תל אביב"
+ "billingcity" : "London"
 }
 ```
 
@@ -15,10 +15,10 @@
 
 ```php
 $data = '{
-       "accountname" : "משה",
-      "telephone1" : "036339060",
+       "accountname" : "IBM",
+      "telephone1" : "442080687145",
       "idnumber" : "1234",
-      "billingcity" : "תל אביב"
+      "billingcity" : "London"
         }';
 $url='https://app.breezz.io/api/record/account'
 $data_string = json_encode($data);  
@@ -44,10 +44,10 @@ import requests
 import json
 
 data = {
-      "accountname" : "משה",
-     "telephone1" : "036339060",
+      "accountname" : "IBM",
+     "telephone1" : "442080687145",
      "idnumber" : "1234",
-     "billingcity" : "תל אביב"
+     "billingcity" : "London"
 }
 
 url = 'https://app.breezz.io/api/record/account'
@@ -72,10 +72,10 @@ using (WebClient client = new WebClient())
                 client.Encoding = System.Text.Encoding.UTF8;
                 string json = new JavaScriptSerializer().Serialize(new
                 {
-                    accountname = "משה",
-                    telephone1 = "036339060",
+                    accountname = "IBM",
+                    telephone1 = "442080687145",
                     idnumber = "1234",
-                    billingcity = "תל אביב"
+                    billingcity = "London"
                 });
                 string result = client.UploadString("https://app.breezz.io/api/record/account", "POST", json);
             }
